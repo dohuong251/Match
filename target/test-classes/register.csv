@@ -1,0 +1,8 @@
+name,email,password,password confirmation,reason
+"",tester@gmail.com,123456,123456,"The username field is required."
+mdc,mdc@gmail.com,123456,123456,"The username field was existed."
+yen,"",123456,123456,"The email field is required."
+yen,mdc@gmail.com,123456,123456,"The email field was existed."
+yen,testergmail.com,123456,123456,"The email field is not valid."
+yen,tester@gmail.com,"",123456,"The password field is required."
+yen,tester@gmail.com,123456,"","The password field is not match."
