@@ -1,18 +1,16 @@
 package yenyen.models.user;
 
-public class Register {
+import java.io.Serializable;
+
+public class Register implements Serializable {
    private String action;
    private String username;
     private String email;
    private String password;
    private String password_confirmation;
 
-    public Register(){
+    private Register(){
 
-    }
-
-    public String getAction() {
-        return action;
     }
 
     public Register setAction(String action) {
@@ -20,17 +18,10 @@ public class Register {
         return this;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
     public Register setUserName(String userName){
         this.username = userName;
         return this;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public Register setEmail(String email) {
@@ -38,17 +29,10 @@ public class Register {
         return this;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public Register setPassword(String password) {
         this.password = password;
         return this;
-    }
-
-    public String getPassword_confirmation() {
-        return password_confirmation;
     }
 
     public Register setPassword_confirmation(String password_confirmation) {
