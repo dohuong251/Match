@@ -7,12 +7,13 @@ import static io.restassured.RestAssured.given;
 
 public class PostAccount {
     private String auth_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM2MDgxYTQ4OGQ5ODU4YTAzZTgyZGVkODU3NGZmYjI0NzJhMzNhZDUxOTEyNWMwYWI2NWJhYmM3YjcxYmEzZjQwYTE0YTc0ODJiMGMxNTY3In0.eyJhdWQiOiIzIiwianRpIjoiMzYwODFhNDg4ZDk4NThhMDNlODJkZWQ4NTc0ZmZiMjQ3MmEzM2FkNTE5MTI1YzBhYjY1YmFiYzdiNzFiYTNmNDBhMTRhNzQ4MmIwYzE1NjciLCJpYXQiOjE1OTQ4OTY5MDIsIm5iZiI6MTU5NDg5NjkwMiwiZXhwIjoxNjI2NDMyOTAyLCJzdWIiOiIxODciLCJzY29wZXMiOltdfQ.EHm6Jc22_n75wBGFKP6D2A77dZb4vGUHgzOfvwrbNB5fmVYeQFrlRtBNpkI3RpK7ZTAp1it55APzrVBKTVF2DSfSidVO3gJdSiPyM_JMH6ALZi602KR0pAOwkvJg7H35RYLL7pUB2xCfRId1SAbKlfrULhfH6sBv-MbKa4UdeKl5R-aSQhh5dH39MKlqz5DrwsDNgOGMsAVyhexLasBhjaGyxeYHWr68tYGWB8J78FVmgJ2cwztdDp29pNc64z3vs1z82Ol8D_5oIHm53WyWVKK3IMCNToyRiDK844d7BNA2Ke_zDmcmJtcUkpWQqn4YQ6e-TtKDGNz2mRcRvn6Xrdx_qKlTr0ZdinSZWPWE7YI4GgBm1pa8gly6INhK6za2Ujlx3FPXjNijqfS_wMg-nPxoWT6YbsEjEM7NLQP4H1Udm-a8T6XI7bewf9SOKGiIJNBmZHVYdsBr8N3mh-kaW0QmrB1QQF6Ie5tfNN0XgkwhULvE-9uO4wJ-maQLLPsO7NFaoWJsygB_3WvPwttWYXilgMh5tuG6lE3z078DcFQHyhoAfzhxuJ7fPdOyviRnHji8jDT6k3_607W83tiYK6HwZyhhW6uPw_tb7tNY2S450D8iO_L7ceMeIXJPein5pYACEbjbraJjIaGquRUjsjQpHHNziLPuE2IhpvCVv0Q";
-    public Response createUser(Object object){
+    private String auth_token2 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjEzYTc4OTEzZGNmMDI5ZGQ2YjBhYjFjMmRiNjJhZDU3YTRjODhhNzU4MzAyNDM3ZWMyOWI3MTRlM2Q0ODcyYjI2YTAyODFkNzI4YWVjYjI3In0.eyJhdWQiOiIzIiwianRpIjoiMTNhNzg5MTNkY2YwMjlkZDZiMGFiMWMyZGI2MmFkNTdhNGM4OGE3NTgzMDI0MzdlYzI5YjcxNGUzZDQ4NzJiMjZhMDI4MWQ3MjhhZWNiMjciLCJpYXQiOjE1OTYxMDg0NDMsIm5iZiI6MTU5NjEwODQ0MywiZXhwIjoxNjI3NjQ0NDQzLCJzdWIiOiIyMjEiLCJzY29wZXMiOltdfQ.YYCKdKsJUrRv-hv2eUyK2OebzewJw9foJ8O87dC3lZsbMUYMoJKaph1aKJP6rrdhvEVGKI-MPXREA3hL8uYd2HL-YcZU1Wn_X-zIcs6UjkZ-HJlb05vtlOYrA342pm6MgEWqyqUlKbzxSFL0K-lUv5LYzwlqHDEEccPuly51CzD6SZVqAbkXwi98jUltt9YX7nZ6NC-7RLbFPOwo1siyIiIm8XrW_NWQBMm1oK6Tq4ZYWT6St31uVNXprDHM_UMwUHxhFn8X9F4YJb_bmQP_g9OLRzhuuctK2dKpo1eJK1Rx5PTzSmLl7ovSDgRJsHDlXWMI0i_tRPd_4yBOnh3QY_nSNH6jl3aQxlyW-mOqvybjpcM8U69n-GrHkWVOZdurqt3jxKfD2ZUVURO3WL-4sZE8sf2QnGLkDnGN8qs_641qIpKgNesoTbR_iQfo3mx0SeSjkKH3VoB0O994gn92FbHpfeaqR60AtnPOCpopyPtslEA-MEJ4B5wxW9e4R8ytWFBRnvQy2qBO_uRxPfsIdDs5uXgj2k9Vw4bRLBqu09r-lfB0iwphT6uLHGyoYRn8sXlbeZOJmloxUWvwlVGsL5HnL_4poYxZ3FqNTgQHF1j2l2Jv-InGdzeFkgoOH6JV9Urna6vFdOITWi58E-u-jvLqYDPOX1B0LUebVUFH7FA";
+    public Response postAccount(Object object){
         Response response = given().log().all()
-                .header("Author", "Bearer "+auth_token)
+                .header("Authorization", "Bearer "+auth_token)
                 .contentType(ContentType.JSON)
                 .body(object)
-                .post();
+                .post("/account");
         return response ;
     }
 

@@ -9,36 +9,36 @@ public class Register implements Serializable {
    private String password;
    private String password_confirmation;
 
-    private Register(){
-
-    }
-
-    public Register setAction(String action) {
-        this.action = action;
-        return this;
-    }
-
-
-    public Register setUserName(String userName){
-        this.username = userName;
-        return this;
-    }
-
-    public Register setEmail(String email) {
-        this.email = email;
-        return this;
-    }
-
-
-    public Register setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public Register setPassword_confirmation(String password_confirmation) {
-        this.password_confirmation = password_confirmation;
-        return this;
-    }
+//    public Register(){
+//
+//    }
+//
+//    public Register setAction(String action) {
+//        this.action = action;
+//        return this;
+//    }
+//
+//
+//    public Register setUserName(String userName){
+//        this.username = userName;
+//        return this;
+//    }
+//
+//    public Register setEmail(String email) {
+//        this.email = email;
+//        return this;
+//    }
+//
+//
+//    public Register setPassword(String password) {
+//        this.password = password;
+//        return this;
+//    }
+//
+//    public Register setPassword_confirmation(String password_confirmation) {
+//        this.password_confirmation = password_confirmation;
+//        return this;
+//    }
 
     private Register(RegisterBuilder builder) {
         this.action=builder.action;

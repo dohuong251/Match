@@ -3,9 +3,79 @@ package yenyen.models.account;
 import com.google.gson.JsonObject;
 
 public class Like {
+    private String action;
+    private String about;
+    private String gender;
+    private String fullname;
+    private String birthday;
+    private String job;
+    private String company;
+    private String education;
+    private String[] languages;
+    private String[] sexual_orientations;
+    private String[] interests;
+    private String[] images_to_delete;
+    private String avatar;
+    private String[] images;
+    private String latitude;
+    private String longitude;
+    private String show_me;
+    private Age age_range;
+    private int maximum_distance;
+    private int show_me_on_app;
+    private int show_me_on_top_pick;
+    private int show_photo;
+    private int show_about;
+    private int show_education;
+    private int show_work;
+    private int enable_email_notification;
+    private int enable_push_notification;
+    private int drink_state;
+    private int smoke_state;
+    private String relationship_status;
+    private int enable_push_notification_new_matches;
+    private int enable_push_notification_messages;
+    private int enable_push_notification_message_likes;
+    private int enable_push_notification_super_likes;
+    private int enable_push_notification_top_picks;
 
-    public Like(){
-
+    public Like(){}
+    public Like(LikeBuilder builder){
+        this.action = builder.action;
+        this.about = builder.about;
+        this.gender=builder.gender;
+        this.fullname = builder.fullname;
+        this.birthday = builder.birthday;
+        this.job = builder.job;
+        this.company = builder.company;
+        this.education = builder.education;
+        this.languages = builder.languages;
+        this.sexual_orientations = builder.sexual_orientations;
+        this.interests = builder.interests;
+        this.images_to_delete = builder.images_to_delete;
+        this.avatar = builder.avatar;
+        this.images = builder.images;
+        this.latitude = builder.latitude;
+        this.longitude = builder.longitude;
+        this.show_me = builder.show_me;
+        this.age_range = builder.age_range;
+        this.maximum_distance = builder.maximum_distance;
+        this.show_me_on_app= builder.show_me_on_app;
+        this.show_me_on_top_pick = builder.show_me_on_top_pick;
+        this.show_about = builder.show_about;
+        this.show_education = builder.show_education;
+        this.show_photo = builder.show_photo;
+        this.show_work = builder.show_work;
+        this.drink_state = builder.drink_state;
+        this.smoke_state = builder.smoke_state;
+        this.relationship_status = builder.relationship_status;
+        this.enable_email_notification = builder.enable_email_notification;
+        this.enable_push_notification = builder.enable_push_notification;
+        this.enable_push_notification_message_likes = builder.enable_push_notification_message_likes;
+        this.enable_push_notification_messages = builder.enable_push_notification_messages;
+        this.enable_push_notification_new_matches = builder.enable_push_notification_new_matches;
+        this.enable_push_notification_super_likes = builder.enable_push_notification_super_likes;
+        this.enable_push_notification_top_picks = builder.enable_push_notification_top_picks;
     }
 
     public static class LikeBuilder{
@@ -13,7 +83,7 @@ public class Like {
         private String action;
         private String about;
         private String gender;
-        private String full_name;
+        private String fullname;
         private String birthday;
         private String job;
         private String company;
@@ -27,7 +97,9 @@ public class Like {
         private String latitude;
         private String longitude;
         private String show_me;
-        private JsonObject age_range;
+        private Age age_range;
+        private int min;
+        private int max;
         private int maximum_distance;
         private int show_me_on_app;
         private int show_me_on_top_pick;
@@ -46,11 +118,22 @@ public class Like {
         private int enable_push_notification_super_likes;
         private int enable_push_notification_top_picks;
 
-        public LikeBuilder(String action, String full_name, String birthday, String avatar){
+
+        public LikeBuilder(){}
+        public LikeBuilder(String action, String fullname){
             this.action = action;
-            this.full_name=full_name;
-            this.birthday = birthday;
+            this.fullname=fullname;
+//            this.birthday = birthday;
+
+        }
+
+        public LikeBuilder setAvatar(String avatar){
             this.avatar = avatar;
+            return this;
+        }
+
+        public Like build(){
+            return new Like(this);
         }
 
         public LikeBuilder setAbout(String about) {
@@ -118,9 +201,26 @@ public class Like {
             return this;
         }
 
-        public LikeBuilder setAge_range(JsonObject age_range) {
-            this.age_range = age_range;
+//        public LikeBuilder setAge_range(int min, int max) {
+//            JsonObject age_range = ageRange(min, max);
+//            this.age_range = age_range;
+//            return this;
+//        }
+
+//        public LikeBuilder setAge_range(JsonObject jsonObject){
+//            this.age_range = jsonObject;
+//            return this;
+//        }
+        public LikeBuilder setAge_range(Age jsonObject){
+            this.age_range = jsonObject;
             return this;
+        }
+
+        public JsonObject ageRange(int min, int max){
+            JsonObject age_range = new JsonObject();
+            age_range.addProperty("min", min);
+            age_range.addProperty("max", max);
+            return age_range;
         }
 
         public LikeBuilder setMaximum_distance(int maximum_distance) {
@@ -207,7 +307,8 @@ public class Like {
             this.enable_push_notification_top_picks = enable_push_notification_top_picks;
             return this;
         }
-
+////sử dụng builder khi Tạo một đối tượng phức tạp: có nhiều thuộc tính (nhiều hơn 4) và một số bắt buộc (requried), một số không bắt buộc (optional).
+////Khi có quá nhiều hàm constructor
     }
 
 }

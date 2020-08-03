@@ -21,7 +21,7 @@ public class PostUser {
 //                .header("Author", "Beare auth_token")
                 .contentType(ContentType.JSON)
                 .body(object)
-                .post();
+                .post("/user");
         return response ;
     }
 }

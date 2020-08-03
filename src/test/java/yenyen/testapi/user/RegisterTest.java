@@ -40,7 +40,8 @@ public class RegisterTest extends BaseUserTest {
     public void registerFail(String name, String email, String pass, String pass_conf, String reason){
 
         response = postUser.createUser(new Register.RegisterBuilder(name, email, pass).setAction("register")
-                                                    .setPassword_confirmation(pass_conf).build());
+//                                                    .setPassword_confirmation(pass_conf)
+                .build());
 
 //        response = postUser.createUser(new Register().setAction("register")
 //                                                    .setUserName(name).setEmail(email).setPassword(pass)
@@ -54,7 +55,9 @@ public class RegisterTest extends BaseUserTest {
     @Test
     public void registerSuccess() {
         response = postUser.createUser(new Register.RegisterBuilder(faker.name().username(),faker.internet().emailAddress(), "123456" ).setAction("register")
-                                                    .setPassword_confirmation("123456").build());
+                                                    .setPassword_confirmation("123456")
+                .build());
+
         checkRegister(response, 0, "success");
         response.then().body("user", Matchers.notNullValue());
     }

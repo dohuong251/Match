@@ -14,7 +14,7 @@ public class BaseUserTest {
 
    @BeforeAll
     public static void init(){
-       RestAssured.baseURI = Constant.URL_USER;
+       RestAssured.baseURI = Constant.BASE_URL;
 
     }
 
